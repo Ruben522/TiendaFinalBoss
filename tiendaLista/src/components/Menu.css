@@ -1,0 +1,45 @@
+.menu-links {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 2rem;
+  background-color: #1f2933;
+  align-items: center;
+}
+
+/* Estilo base de los enlaces */
+.menu-links a {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  color: #e5e7eb;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.menu-links a:hover {
+  background-color: #374151;
+}
+
+/* Botón Inicio */
+.menu-links a.inicio {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.menu-links a.inicio:hover {
+  background-color: #4338ca;
+}
+
+/* Botón Lista */
+.menu-links a.lista {
+  background-color: #059669;
+  color: white;
+}
+
+.menu-links a.lista:hover {
+  background-color: #047857;
+  width: 100px;
+}

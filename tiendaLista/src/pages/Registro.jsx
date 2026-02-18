@@ -1,0 +1,82 @@
+import React from 'react';
+import "./Formulario.css";
+import useSupabaseSesion from "../hooks/useSupabaseSesion.js";
+import Errores from "../pages/Errores.jsx";
+
+// Página de registro de nuevos usuarios.
+const Registro = () => {
+  const {
+    actualizarDato,
+    enviarFormulario,
+    limpiarFormulario,
+    mensaje,
+    error,
+    datosSesion,
+  } = useSupabaseSesion();
+
+  return (
+    <div className="formulario">
+      <h1>Registrarse</h1>
+
+      <form id="formulario">
+        <label htmlFor="name">Nombre o usuario</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Tiburón_Vegano_33"
+          value={datosSesion.name}
+          onChange={(evento) => actualizarDato(evento)}
+        />
+
+        <label htmlFor="email">Correo Electrónico</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="ejemplo@gmail.com"
+          value={datosSesion.email}
+          onChange={(evento) => actualizarDato(evento)}
+        />
+
+        <label htmlFor="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Mínimo 8 caracteres"
+          value={datosSesion.password}
+          onChange={(evento) => actualizarDato(evento)}
+        />
+
+        <label htmlFor="password">Repetir contraseña</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="Mínimo 8 caracteres"
+          value={datosSesion.confirmPassword}
+          onChange={(evento) => actualizarDato(evento)}
+        />
+
+        <input
+          type="button"
+          value="Registrarme"
+          onClick={() => {
+            enviarFormulario();
+          }}
+        />
+        <input
+          type="button"
+          value="Limpiar"
+          onClick={() => {
+            limpiarFormulario();
+          }}
+        />
+      </form>
+      <Errores error={error} mensaje={mensaje} />
+    </div>
+  )
+}
+
+export default Registro;

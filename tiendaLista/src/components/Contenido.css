@@ -1,0 +1,9 @@
+.contenido {
+  padding: 2rem 1rem;
+  background-color: #f5f7fb;
+}
+
+.contenido > * {
+  max-width: 1000px;
+  margin: 0 auto;
+}

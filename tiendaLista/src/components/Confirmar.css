@@ -1,0 +1,74 @@
+.confirmacion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+.confirmacion > div,
+.confirmacion .modal {
+  background-color: #ffffff;
+  padding: 24px 28px;
+  border-radius: 12px;
+
+  width: 90%;
+  max-width: 420px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.confirmacion p {
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.confirmacion .acciones {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.confirmacion button {
+  min-width: 100px;
+  padding: 10px 16px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.confirmacion .si {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+.confirmacion .si:hover {
+  background-color: #b71c1c;
+  transform: translateY(-1px);
+}
+
+.confirmacion .no {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.confirmacion .no:hover {
+  background-color: #cfcfcf;
+  transform: translateY(-1px);
+}
