@@ -3,7 +3,7 @@ import useSupabaseSesion from "../hooks/useSupabaseSesion.js";
 import useNotificaciones from "../hooks/useNotificaciones.js";
 import "./Usuario.css"
 
-const Usuario = ({ email, id, rol }) => {
+const Usuario = ({ email, id, rol, id_rol }) => {
   const { cambiarRol } = useSupabaseSesion();
   const { pedirConfirmacion } = useNotificaciones();
 
@@ -28,7 +28,7 @@ const Usuario = ({ email, id, rol }) => {
         onClick={() =>
           pedirConfirmacion(
             "¿Estás seguro de que quieres cambiar el rol?",
-            () => cambiarRol(id, rolSeleccionado),
+            () => cambiarRol(id, id_rol, rolSeleccionado),
           )
         }
       />

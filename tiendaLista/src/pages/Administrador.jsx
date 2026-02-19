@@ -15,6 +15,7 @@ const Administrador = () => {
         <Usuario
           key={user.id}
           id={user.id}
+          id_rol={user.id_rol}
           email={user.email}
           rol={user.rol}
         />

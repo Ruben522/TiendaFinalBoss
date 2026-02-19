@@ -6,12 +6,14 @@ import añadir from "../assets/imgs/añadir.png";
 import editar from "../assets/imgs/editar.png";
 import { useNavigate } from "react-router-dom";
 import "./MisListas.css";
+import useSupabaseSesion from '../hooks/useSupabaseSesion.js';
 
 // Página que muestra las listas del usuario con funciones de eliminar, editar nombre y eliminar si no contiene elementos.
 const MisListas = () => {
   const navegar = useNavigate();
   const { todasLasListas, borrarLista, modificarLista } = useContextoLista();
   const { pedirConfirmacion } = useNotificaciones();
+  const { esAdmin } = useSupabaseSesion();
 
   return (
     <>
@@ -25,6 +27,8 @@ const MisListas = () => {
               {todasLasListas.map((lista) => (
                 <div key={lista.id} className="botones-lista">
                   <p>{lista.name}</p>
+                  {!esAdmin() &&
+                  <>
                   <img
                     src={borrar}
                     alt="borrar"
@@ -55,6 +59,8 @@ const MisListas = () => {
                       )
                     }
                   />
+                  </>
+              };
                 </div>
               ))}
             </div>

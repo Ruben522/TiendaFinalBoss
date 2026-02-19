@@ -178,7 +178,13 @@ const ProveedorSesion = ({ children }) => {
     }));
   };
 
-  const cambiarRol = async (id, nuevoRol) => {
+  const cambiarRol = async (id, id_rol, nuevoRol) => {
+    if (id_rol === usuario.id) {
+      notificar("No puedes cambiarte a tí mismo", "error")
+      return
+    }
+    console.log(id_rol)
+    console.log(usuario.id)
     try {
       await editarPorId({
         id,
