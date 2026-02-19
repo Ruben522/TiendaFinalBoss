@@ -1,32 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import useSupabaseSesion from "../hooks/useSupabaseSesion.js";
 import useNotificaciones from "../hooks/useNotificaciones.js";
+import "./Usuario.css"
 
-const Usuario = ({ email, id , rol}) => {
-  const { actualizarRol, cambiarRol, rolSeleccionado } = useSupabaseSesion();
+const Usuario = ({ email, id, rol }) => {
+  const { cambiarRol } = useSupabaseSesion();
   const { pedirConfirmacion } = useNotificaciones();
+
+  const [rolSeleccionado, setRolSeleccionado] = useState(rol);
 
   return (
     <div className="usuario">
       <h3>{email}</h3>
       <p>Rol actual: {rol}</p>
+
       <select
-        name="rol"
-        id="rol"
         value={rolSeleccionado}
-        onChange={(evento) => actualizarRol(evento)}
+        onChange={(evento) => setRolSeleccionado(evento.target.value)}
       >
         <option value="usuario">Usuario</option>
         <option value="administrador">Administrador</option>
       </select>
+
       <input
         type="button"
         value="Cambiar"
         onClick={() =>
-            pedirConfirmacion(
+          pedirConfirmacion(
             "¿Estás seguro de que quieres cambiar el rol?",
-            () => cambiarRol(id)
-        )}
+            () => cambiarRol(id, rolSeleccionado),
+          )
+        }
       />
     </div>
   );

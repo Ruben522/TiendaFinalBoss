@@ -1,0 +1,51 @@
+.usuario {
+    background-color: #1f2937;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #f9fafb;
+}
+
+.usuario h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.usuario p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+.usuario select {
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+    background-color: #374151;
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    transition: background-color 0.2s ease;
+}
+
+.usuario select:hover {
+    background-color: #4b5563;
+}
+
+.usuario input[type="button"] {
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.usuario input[type="button"]:hover {
+    background-color: #1d4ed8;
+}

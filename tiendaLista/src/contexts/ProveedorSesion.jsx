@@ -27,14 +27,16 @@ const ProveedorSesion = ({ children }) => {
   };
   const usuarioInicial = {};
   const sesionIniciadaInicial = false;
+  const errorInicial = "";
+  const rolInicial = "";
+  const usuariosInicial = [];
 
   const [datosSesion, setDatosSesion] = useState(datosSesionInicial);
   const [usuario, setUsuario] = useState(usuarioInicial);
   const [sesionIniciada, setSesionIniciada] = useState(sesionIniciadaInicial);
-  const [error, setError] = useState("");
-  const [rol, setRol] = useState("");
-  const [rolSeleccionado, setRolSeleccionado] = useState("");
-  const [usuarios, setUsuarios] = useState([]);
+  const [error, setError] = useState(errorInicial);
+  const [rol, setRol] = useState(rolInicial);
+  const [usuarios, setUsuarios] = useState(usuariosInicial);
 
   useEffect(() => {
     const subscripcion = supabaseConexion.auth.onAuthStateChange(
@@ -68,8 +70,16 @@ const ProveedorSesion = ({ children }) => {
         notificar("Error al cargar los usuarios.", "error");
       }
     };
-    listarUsuarios();
-  }, []);
+
+    /* Esta parte se la pregunté a chatgpt por la siguiente razón:
+    * Aunque fuese administrador, el usuario se cargaba antes, y por la dependencia, no se cargaban los usuarios.
+    * Eso hacia que no puedieses ver a los usuarios y sus roles hasta que no recargaba la página.
+    * Con esta solución, el usuario y su rol se carga antes de intentar cargar la lista de usuarios.
+    */
+    if (sesionIniciada && rol === "administrador") {
+      listarUsuarios();
+    }
+  }, [sesionIniciada, rol]);
 
   const esAdmin = () => {
     return rol === "administrador";
@@ -168,29 +178,21 @@ const ProveedorSesion = ({ children }) => {
     }));
   };
 
-
-  
-  const actualizarRol = (evento) => {
-    const { name, value } = evento.target;
-    setRolSeleccionado(value);
-  };
-
-  const cambiarRol = async (id) => {
-
+  const cambiarRol = async (id, nuevoRol) => {
     try {
-      const datos = await editarPorId({
+      await editarPorId({
         id,
-        rol: rolSeleccionado,
+        rol: nuevoRol,
       });
 
       notificar("Rol actualizado correctamente", "exito");
       const respuesta = await listarTodo();
       setUsuarios(respuesta);
-
     } catch (error) {
       notificar("Error al actualizar el rol", "error");
     }
   };
+
 
   const exportar = {
     enviarFormulario,
@@ -206,10 +208,9 @@ const ProveedorSesion = ({ children }) => {
     rol,
     esAdmin,
     cambiarRol,
-    rolSeleccionado,
-    actualizarRol,
     usuarios,
   };
+
 
   return <sesion.Provider value={exportar}>{children}</sesion.Provider>;
 };
