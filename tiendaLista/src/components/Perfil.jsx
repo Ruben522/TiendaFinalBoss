@@ -67,18 +67,22 @@ const Perfil = () => {
                             actualizarDato(evento)
                         }}
                     />
-
-                    <button onClick={() => {
+                    
+                    <input
+                    type="button"
+                    value="Guardar cambios"
+                    onClick={() => {
                         guardarPerfil()
-                    }}>
-                        Guardar cambios
-                    </button>
+                    }}
+                    />
 
-                    <button onClick={() => {
+                    <input
+                    type="button"
+                    value="Cancelar cambios"
+                    onClick={() => {
                         cancelarEdicion()
-                    }}>
-                        Cancelar
-                    </button>
+                    }}
+                    />
                 </>
             ) : (
                 <>
