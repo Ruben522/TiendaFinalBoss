@@ -44,7 +44,9 @@ const Rutas = () => {
         element={esAdmin() ? <Navigate to="/" replace /> : <EditarLista />}
       />
       <Route path="/añadir-productos/:id" element={<AñadirProductos />} />
-      <Route path="/ver-perfil/:id" element={<Perfiles />} />
+      <Route
+        path="/ver-perfil/:id"
+        element={esAdmin() ? <Navigate to="/" replace /> : <Perfiles />} />
       <Route
         path="/administrador"
         element={!esAdmin() ? <Navigate to="/" replace /> : <Administrador />} />

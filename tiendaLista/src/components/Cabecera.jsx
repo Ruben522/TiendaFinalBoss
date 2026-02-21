@@ -40,6 +40,10 @@ const Cabecera = () => {
           >
             Quitar Sesión
           </button>
+        </>
+      }
+      {sesionIniciada && !esAdmin() &&
+        <>
           <div className='perfil'>
             <button onClick={() => {
               navegar(`ver-perfil/${usuario.id}`);
@@ -49,11 +53,11 @@ const Cabecera = () => {
           </div>
         </>
       }
-      {esAdmin() && 
-      <>
-        <Link to="/administrador">Administrador de roles</Link>
-        <Link to="/todas-las-listas">Ver listas</Link>
-      </>
+      {esAdmin() &&
+        <>
+          <Link to="/administrador">Administrador de roles</Link>
+          <Link to="/todas-las-listas">Ver listas</Link>
+        </>
       }
     </div>
   )

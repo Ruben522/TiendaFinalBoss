@@ -61,12 +61,13 @@ function App() {
  * Roles: UPDATE y SELECT
  * Productos: UPDATE, INSERT y DELETE
  * 
- * De la misma manera, pero negando la condición (!comprobar_rol()), he impedido
+ * De la misma manera, pero negando la condición (NOT comprobar_rol()), he impedido
  * que un administrador pueda realizar cambios en las siguientes tablas:
  * 
  * Lista_productos: UPDATE, INSERT y DELETE.
  * Lista: UPDATE, INSERT y DELETE. Esto ha sido cosa de diseño. Considero que, para poder realizar pruebas
  *        o cambios significativos relacionados con las listas, deberíamos crear otro rol.
+ * Perfiles: UPDATE, INSERT Y SELECT. Está pensado de la misma manera que el anterior. Un administrador no debería tener un perfil, ya que no se va a mostrar a nadie.
  */
 
 export default App
