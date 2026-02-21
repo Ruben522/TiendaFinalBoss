@@ -4,8 +4,8 @@ import useContextoLista from "../hooks/useContextoLista.js";
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-// Página para editar una lista.
-const CrearLista = () => {
+// Página para editar una lista mediante su id.
+const EditarLista = () => {
     const {
         lista,
         actualizarDato,
@@ -56,4 +56,4 @@ const CrearLista = () => {
     )
 }
 
-export default CrearLista
+export default EditarLista

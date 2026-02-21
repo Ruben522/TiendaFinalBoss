@@ -3,7 +3,7 @@ import "./Inicio.css";
 import useSupabaseSesion from "../hooks/useSupabaseSesion.js";
 // Página de inicio de la aplicación a la que reedigiremos a un usuario que recien se logea.
 const Inicio = () => {
-  const { usuario, esAdmin } = useSupabaseSesion();
+  const { usuario } = useSupabaseSesion();
 
   return (
     <div className="inicio">

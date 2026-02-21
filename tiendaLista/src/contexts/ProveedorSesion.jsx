@@ -108,6 +108,9 @@ const ProveedorSesion = ({ children }) => {
     try {
       await cerrarSesion();
       setUsuario(usuarioInicial);
+      setRol(rolInicial);
+      setUsuarios(usuariosInicial);
+      setSesionIniciada(false);
       navegar("/");
       notificar("Se ha cerrado sesión", "exito");
     } catch (error) {

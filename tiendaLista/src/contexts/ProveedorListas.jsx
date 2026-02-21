@@ -27,7 +27,7 @@ const ProveedorListas = ({ children }) => {
   const [esAdmin, setEsAdmin] = useState(false);
   const [mensaje, setMensaje] = useState(mensajeInicial);
   const [error, setError] = useState(errorInicial);
-  
+
   const { crear, editarPorId, eliminar, traerPorCampo, listarTodo } =
     usePeticiones("lista");
   const { traerPorCampo: traerProductosDeLista } =
@@ -120,7 +120,7 @@ const ProveedorListas = ({ children }) => {
 
       const respuesta = await crearNuevaLista(listaGuardar);
       limpiarFormulario();
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const enviarFormularioListaEditada = async () => {
@@ -140,7 +140,7 @@ const ProveedorListas = ({ children }) => {
       };
       const respuesta = await editarLista(listaGuardar);
       limpiarFormulario();
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const actualizarDato = (evento) => {

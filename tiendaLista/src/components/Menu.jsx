@@ -16,7 +16,7 @@ const Menu = () => {
        * que encargar de ello.
        * Si es necesario, se creará otro rol que haga tareas con las listas y tenga menos privilegios.
        */}
-      {sesionIniciada && esAdmin (
+      {sesionIniciada && !esAdmin() && (
         <>
           <Link className="mis-listas" to="/mis-listas">Mis listas</Link>
           <Link className="crear-lista" to="/crear-lista">Crear lista</Link>

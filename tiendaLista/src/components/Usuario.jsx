@@ -3,6 +3,7 @@ import useSupabaseSesion from "../hooks/useSupabaseSesion.js";
 import useNotificaciones from "../hooks/useNotificaciones.js";
 import "./Usuario.css"
 
+// Componente que muestra su usuario. Un administrador puede cambiar el rol del usuario.
 const Usuario = ({ email, id, rol, id_rol }) => {
   const { cambiarRol } = useSupabaseSesion();
   const { pedirConfirmacion } = useNotificaciones();
@@ -15,7 +16,7 @@ const Usuario = ({ email, id, rol, id_rol }) => {
       <p>Rol actual: {rol}</p>
 
       <select
-        value={rolSeleccionado}
+        value={rolSeleccionado || rol}
         onChange={(evento) => setRolSeleccionado(evento.target.value)}
       >
         <option value="usuario">Usuario</option>

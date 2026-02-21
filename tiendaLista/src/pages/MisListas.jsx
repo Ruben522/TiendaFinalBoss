@@ -28,39 +28,39 @@ const MisListas = () => {
                 <div key={lista.id} className="botones-lista">
                   <p>{lista.name}</p>
                   {!esAdmin() &&
-                  <>
-                  <img
-                    src={borrar}
-                    alt="borrar"
-                    onClick={() =>
-                      pedirConfirmacion(
-                        "¿Eliminar lista?",
-                        () => borrarLista(lista.id)
-                      )
-                    }
-                  />
-                  <img
-                    src={añadir}
-                    alt="añadir"
-                    onClick={() =>
-                      pedirConfirmacion(
-                        "¿Añadir articulos a la lista?",
-                        () => modificarLista(lista.id)
-                      )
-                    }
-                  />
-                  <img
-                    src={editar}
-                    alt="editar"
-                    onClick={() =>
-                      pedirConfirmacion(
-                        "¿Editar lista?",
-                        () => navegar(`/editar-lista/${lista.id}`),
-                      )
-                    }
-                  />
-                  </>
-              };
+                    <>
+                      <img
+                        src={borrar}
+                        alt="borrar"
+                        onClick={() =>
+                          pedirConfirmacion(
+                            "¿Eliminar lista?",
+                            () => borrarLista(lista.id)
+                          )
+                        }
+                      />
+                      <img
+                        src={añadir}
+                        alt="añadir"
+                        onClick={() =>
+                          pedirConfirmacion(
+                            "¿Añadir articulos a la lista?",
+                            () => modificarLista(lista.id)
+                          )
+                        }
+                      />
+                      <img
+                        src={editar}
+                        alt="editar"
+                        onClick={() =>
+                          pedirConfirmacion(
+                            "¿Editar lista?",
+                            () => navegar(`/editar-lista/${lista.id}`),
+                          )
+                        }
+                      />
+                    </>
+                  }
                 </div>
               ))}
             </div>

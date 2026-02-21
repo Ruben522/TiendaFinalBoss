@@ -4,6 +4,7 @@ import useContextoPerfil from "../hooks/useContextoPerfil";
 import { avataresPredeterminados } from "../assets/json/avatares";
 import "./Perfil.css"
 
+// Componente del perfil del usuario. Puede editar su nombre, avatar y descripción.
 const Perfil = () => {
     const {
         perfilUsuario,
@@ -67,21 +68,21 @@ const Perfil = () => {
                             actualizarDato(evento)
                         }}
                     />
-                    
+
                     <input
-                    type="button"
-                    value="Guardar cambios"
-                    onClick={() => {
-                        guardarPerfil()
-                    }}
+                        type="button"
+                        value="Guardar cambios"
+                        onClick={() => {
+                            guardarPerfil()
+                        }}
                     />
 
                     <input
-                    type="button"
-                    value="Cancelar cambios"
-                    onClick={() => {
-                        cancelarEdicion()
-                    }}
+                        type="button"
+                        value="Cancelar cambios"
+                        onClick={() => {
+                            cancelarEdicion()
+                        }}
                     />
                 </>
             ) : (

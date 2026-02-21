@@ -4,7 +4,7 @@ import React, { createContext, useState } from 'react'
 
 const notificaciones = createContext();
 
-const ProveedorNotificaciones = ({children}) => {
+const ProveedorNotificaciones = ({ children }) => {
     const [lista, setLista] = useState([])
     const [confirmacion, setConfirmacion] = useState(false);
     const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
@@ -30,17 +30,17 @@ const ProveedorNotificaciones = ({children}) => {
 
     /* Lo he compiado de Juande, me parecia chulo */
     const notificar = (mensaje, tipo = "exito") => {
-    const id = Date.now() + Math.random();
+        const id = Date.now() + Math.random();
 
-    setLista((prev) => [...prev, { id, mensaje, tipo }]);
+        setLista((prev) => [...prev, { id, mensaje, tipo }]);
 
-    setTimeout(() => {
-        setLista((prev) => prev.filter((item) => item.id !== id));
-    }, 3000);
-};
+        setTimeout(() => {
+            setLista((prev) => prev.filter((item) => item.id !== id));
+        }, 3000);
+    };
 
 
-    const exportar = 
+    const exportar =
     {
         lista,
         notificar,
@@ -49,15 +49,15 @@ const ProveedorNotificaciones = ({children}) => {
         pedirConfirmacion,
         cancelarConfirmacion,
         aceptarConfirmacion,
-        
+
     };
 
-  return (
-    <notificaciones.Provider value={exportar}>
-        {children}
-    </notificaciones.Provider>
-  );
+    return (
+        <notificaciones.Provider value={exportar}>
+            {children}
+        </notificaciones.Provider>
+    );
 };
 
 export default ProveedorNotificaciones
-export {notificaciones};
+export { notificaciones };
