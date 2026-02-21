@@ -186,8 +186,6 @@ const ProveedorSesion = ({ children }) => {
       notificar("No puedes cambiarte a tí mismo", "error")
       return
     }
-    console.log(id_rol)
-    console.log(usuario.id)
     try {
       await editarPorId({
         id,
